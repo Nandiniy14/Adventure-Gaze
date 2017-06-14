@@ -1,0 +1,19 @@
+
+<div *ngIf = "listing">
+<!-- <a [routerLink] = "['/listing/'+listing.city]">
+Go Back</a>
+ -->
+	<h2 class = "page-header">{{listing.title}}</h2>
+	<div class = "row">
+		<div class = "col-md-4">
+			<img style="width:100%" class = "thumbnail" src = "{{imageUrl}}">
+		</div>
+		<div class = "col-md-8">
+			<ul class = "list-group">
+				<li class = "list-group-item"><h5><b>Review</b>&nbsp;:&nbsp;{{listing.review}}</h5></li>
+				<li class = "list-group-item"><h5><b>City</b>&nbsp;:&nbsp;{{listing.city}}</h5></li>
+				<li class = "list-group-item"><h5><b>By</b>&nbsp;:&nbsp;{{listing.name}}</h5></li>
+			</ul>
+		</div>
+	</div>
+</div>

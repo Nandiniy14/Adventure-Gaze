@@ -1,0 +1,36 @@
+
+<div class="container-fluid">
+ <div class="row content">
+    <div class="col-sm-4 sidenav">
+		<ul><li class = "list-group-item"><ul class = "list-group" *ngFor = "let user of users">
+			<div *ngIf = "user.name != email">
+				<ng-container *ngIf = "cfollows.includes(user.name); then thenBlock; else ElseBlock"></ng-container> 
+				<ng-template #ElseBlock>
+					<li class = "list-group-item" ><h6>{{user.name}}</h6>
+					<button class="btn btn-warning btn-sm"  (click) = "follow(user.name)">
+						<span class="glyphicon glyphicon-plus"></span> 
+					</button></li>
+				</ng-template>
+			</div>
+		</ul></li></ul>
+	</div>
+	 <div class="col-sm-5">
+		<ul class = "list-group" *ngFor = "let listing of followlistings">
+			
+			<li class = "list-group-item" >{{listing.title}}<p style = "float:right;">{{listing.name}}</p>
+				<img style="width:100%" class = "thumbnail" src ="{{listing.path}}" >{{listing.review}}
+			</li>
+		</ul>
+	</div> 
+	<div style = "float:right;" class="col-sm-3 sidenav">
+		<ul class = "list-group">
+			
+			<li class = "list-group-item" *ngFor = "let follow of splitted">{{follow}}
+			</li>
+		</ul>
+	</div> 
+
+	</div>	
+</div>
+
+	

@@ -1,0 +1,7 @@
+{{user()}}
+<ul class = "list-group" *ngFor = "let listing of listings">
+	<li class = "list-group-item" *ngIf = "listing.name == email">
+		<a [routerLink] = "['/list/'+listing.$key]">
+	    {{listing.title}} </a>		
+	</li>
+</ul>

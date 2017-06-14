@@ -1,0 +1,37 @@
+<a class = "btn btn-primary" (click) = "createGroup()">Form a Group</a>
+<form (submit) = "onAddSubmit()">
+
+	<div class = "form-group">
+      <label *ngIf = "show">GroupName</label>  
+      <input *ngIf = "show" class = "form-control" type = "text" [(ngModel)] = "name" name = "name">
+	</div>
+
+	<div class = "form-group">
+      <label *ngIf = "show">Description</label>  
+      <input  *ngIf = "show" class = "form-control" type = "text" [(ngModel)] = "description" name = "description">
+	</div>
+	<div class = "form-group" *ngIf = "show">
+        <input id = "image" type = "file" [(ngModel)] = "image" name = "image">
+	</div>
+	
+	<input *ngIf = "show" type = "submit" value = "submit" class = "btn btn-success">
+	
+</form>
+
+
+<div class="row">
+<div *ngFor = "let group of dgroups">
+	<ul class = "list-group">
+		<ng-container *ngIf = "group.members.includes(email); then thenBlock; else ElseBlock"></ng-container>
+		<ng-template #ElseBlock>
+			<div class = "col-md-3"><li class = "list-group-item" >{{group.name}}
+				<a class="btn btn-warning btn-sm" style = "float:right" (click) = "JoinGroup(group)">
+				<span class="glyphicon glyphicon-plus"></span> join
+				</a>
+				<img style="width:200px;height:100px;" class = "thumbnail" src ="{{group.imageUrl}}">
+				{{group.description}}
+			</li></div>
+		</ng-template>
+	</ul>
+</div>
+</div>
